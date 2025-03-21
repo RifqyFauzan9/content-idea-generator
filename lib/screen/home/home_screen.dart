@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Disini ada generator yow!',
+          'Content idea generator',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'Masukkan Topic-nya dulu yow!',
+                'Masukkan Topic-nya dulu!',
                 style: TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 8),
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
               FilledButton.icon(
                 onPressed: () => _generateSchedule(_topicController.text),
                 icon: Icon(Icons.bolt, size: 24),
-                label: const Text('Generate Mas Yow!'),
+                label: const Text('Generate Mas!'),
               ),
               const SizedBox(height: 4),
               if (!isLoading &&
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     Text(
-                      'Ayo di-generate yow!',
+                      'Ayo di-generate!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 24,
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.03),
                     Text(
-                      'Sebentar yow!',
+                      'Tunggu Sebentar!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 24,
@@ -348,6 +348,7 @@ class _HomeScreenState extends State<HomeScreen> {
       await HistoryService.saveHistory({
         'title': topic,
         'date': DateTime.now().toString(),
+        'content': result,
       });
       _showSnackbar(
         'Berhasil di-generate yow!',

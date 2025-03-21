@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schedule_generator/screen/detail/detail_screen.dart';
 import 'package:schedule_generator/services/shared_preferences_service.dart';
 import 'package:schedule_generator/size_config.dart';
 import 'package:schedule_generator/theme/color.dart';
@@ -110,6 +111,17 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     return Card(
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailScreen(
+                                data: item['content'] ?? {},
+                                title: item['title'] ?? 'Tanpa Topic',
+                              ),
+                            ),
+                          );
+                        },
                         leading: Icon(
                           Icons.lightbulb,
                           color: kPrimaryColor,
