@@ -9,7 +9,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     DevicePreview(
-      enabled: kReleaseMode,
+      enabled: !kReleaseMode,
       builder: (context) => const MainApp(),
     ),
   );
